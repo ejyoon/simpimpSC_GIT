@@ -99,13 +99,12 @@ This stuff will vary by experiment.
 }
 
 #elmo{
-  width: 130px;
-	height: 160px;
+  width: 200px;
+	height: 200px;
 }
 
 #no_elmo{
-  width: 200px;
-  height: 200px;
+  width: 50%;
 }
 
 .additional{

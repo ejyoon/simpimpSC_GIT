@@ -43,6 +43,12 @@ shuffle = function (o) { //v1.0
     return o;
 }
 
+// prevents page from scrolling when spacebar is pressed
+window.onkeydown = function(e) { 
+    return !(e.keyCode == 32)
+}
+
+
 
 
 // ---------------- PARAMETERS ------------------
@@ -100,6 +106,7 @@ var trialImages_24 = ["trial24_L", "trial24_R"]
 // --WORDS--
 // FIX: add if statement for two lists: if list1, ... if list2, ...
 // FIX: practice trial?
+// FIX: need to randomize?
 
 var trialWord_1 = [["table", "tables"],"a teddy bear"]
 var trialWord_2 = [["lunchbox", "lunchboxes"],"an apple"]
@@ -126,7 +133,7 @@ var trialWord_22 = [["lunchbox", "lunchboxes"],"an apple"]
 var trialWord_23 = [["friend", "boys"],"a truck"]
 var trialWord_24 = [["house", "houses"],"a bicycle"]
 
-
+var trial_order = shuffle([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24])
 
 // ---------------- CONTROL FLOW ------------------
 //PRE-LOAD IMAGES
@@ -207,6 +214,9 @@ var experiment = { // end, next, select
   		image1_html += '<td align = "center"><img src="objects/' + image[0] + '.png" id="no_elmo" /></td>'    	
         image1_html += '<td align = "center"><img src="objects/' + image[1] + '.png" id="no_elmo" /></td>'
         image1_html += '</tr><tr>'
+        image1_html += '<td align="center"><p>[Q]</p></td>'
+        image1_html += '<td align="center"><p>[P]</p></td>'
+        image1_html += '</tr><tr>'        
         image1_html += '<td align="center"><input type="radio" name="container_L" id="item_0"></input></td>'
         image1_html += '<td align="center"><input type="radio" name="container_R" id="item_1"></input></td>'
         image1_html += '</tr></table>'
