@@ -171,6 +171,32 @@ var experiment = { // end, next, select
     
     $(document).keydown(function(event) {
 	    if (event.which == 32 & !already_movedon) {
+		experiment.practice_keyLeft()
+		already_movedon = 1
+	    }	    
+	})
+    },
+    
+    // practice left key 
+    practice_keyLeft: function() {
+	showSlide("practiceKeyLeft")
+	
+	var already_movedon = 0
+	$(document).keydown(function(event) {
+	    if ( event.which == 81 & !already_movedon) { // 81 = event for pressing 'Q'
+		experiment.practice_keyRight()
+		already_movedon = 1
+	    }	    
+	})
+    },
+    
+    // practice right key
+    practice_keyRight: function() {
+	showSlide("practiceKeyRight")
+
+	var already_movedon = 0
+	$(document).keydown(function(event) {
+	    if ( event.which == 80 & !already_movedon) { // 80 = event for pressing 'P'
 		experiment.initial0()
 		already_movedon = 1
 	    }	    
