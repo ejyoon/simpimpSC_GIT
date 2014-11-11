@@ -162,6 +162,20 @@ var experiment = { // end, next, select
 // fix: other vars?
     experiment: "simpimpSC",
     mainNum: 1,
+
+    //Show practice trials: 
+    practice_start: function() {
+	showSlide("practiceStart")
+
+    var already_movedon = 0
+    
+    $(document).keydown(function(event) {
+	    if (event.which == 32 & !already_movedon) {
+		experiment.initial0()
+		already_movedon = 1
+	    }	    
+	})
+    },
     
     // INITIAL0 function
   initial0:function() {
