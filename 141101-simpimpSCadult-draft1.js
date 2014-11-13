@@ -77,7 +77,9 @@ if (cond == 1) {
 // --IMAGES--
 
 // FIX: add if statement for two lists: if list1, ... if list2, ...
-//practice trial: var trialImages_0 = ["trial0_L", "trial0_R"]
+var practiceImages_1 = ["pr1_L", "pr1_R"]
+var practiceImages_2 = ["pr2_L", "pr2_R"]
+
 var trialImages_1 = ["trial1_L", "trial1_R"]
 var trialImages_2 = ["trial2_L", "trial2_R"]
 var trialImages_3 = ["trial3_L", "trial3_R"]
@@ -133,6 +135,7 @@ var trialWord_22 = [["lunchbox", "lunchboxes"],"an apple"]
 var trialWord_23 = [["friend", "boys"],"a truck"]
 var trialWord_24 = [["house", "houses"],"a bicycle"]
 
+// fix: should trials be randomized? probably not ... 
 var trial_order = shuffle([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24])
 
 // ---------------- CONTROL FLOW ------------------
@@ -202,6 +205,34 @@ var experiment = { // end, next, select
 	    }	    
 	})
     },
+    
+    // practice trial
+    practice_trial: function() {
+    	var n = experiment.practiceTrials.shift()
+    	if (typeof n == "undefined") {
+    	    return experiment.practice_end()
+    	}
+    	// clear the questions
+    	$("#questionL").html("") 
+    	$("#questionR").html("")
+    	$("#questionText").html("")
+	
+    	showSlide("stage")
+	$("#context1").html("","") 
+	$("#context2").html("+","") 
+	$("#context3").html("","")
+	
+	// var practiceContext_text = "Look at these " + practicePeople[n] + "!"
+	
+	// $("#questionText").html(makeQuestionText(practiceContext_text))
+	
+ 	$("#instructionsText").html("Please wait .")
+	
+    	setTimeout(function() { $("#instructionsText").html("Please wait . .")}, 1000)
+	setTimeout(function() { $("#instructionsText").html("Please wait . . .")}, 2000)
+	setTimeout(function() { experiment.next_practiceQuestion(n) }, 3000)
+    },
+    
     
     // INITIAL0 function
   initial0:function() {

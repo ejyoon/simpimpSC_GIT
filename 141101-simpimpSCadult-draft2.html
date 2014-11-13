@@ -1,0 +1,165 @@
+<html>
+<head>
+<title>Language Experiment</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="http://stanford.edu/~louyang/mmturkey.0.5.1.js"></script>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="slide" id="instructions">
+  <img src="images/stanford.png" alt="Stanford University">
+  <p id='logo-text'>Stanford Language and Cognition Lab</p>
+
+ <p class="block-text"> In this experiment, first you will see a blank
+ screen for three seconds. After three seconds, the experiment will automatically
+ continue. Next you will see a pair of pictures and you will be
+ prompted to select one. <b> Press Q to select the picture on the left
+ and P to select the picture on the right.</b>
+  <br><br>
+  <b>Your responses in this experiment are
+  timed.  Please try to respond to each question as quickly and
+ accurately as possible. </b></p>
+  <button type="button" onClick="this.blur(); experiment.practice_start()">Start</button>
+  <p class="block-text" id="legal">Legal information: By answering the
+  following questions, you are participating in a study being performed by
+  developmental psychologists in the Stanford Department of Psychology. If you have
+  questions about this research, please contact us at <a
+  href="mailto://languagecoglab@gmail.com">languagecoglab@gmail.com</a>. You must be  at least 18 years old to
+  participate. Your participation in this research is voluntary. You may
+  decline to answer any or all of the following questions. You may decline
+  further participation, at any time, without adverse consequences. Your
+  anonymity is assured; the researchers who have requested your
+  participation will not receive any personal information about you.</p>
+</div>
+
+<div class="slide" id="practiceStart">
+  <p class="block-text2"><b>Practice Questions:</b><br><br>
+
+ First you will have a chance to practice. 
+You will see a pair of pictures and you will be asked to select one.
+ You must select the correct picture <b>as quickly as possible</b>
+ Press Q to select the picture on the left and P to select the picture
+ on the right. 
+  
+  <br></br>
+   <p class="block-text3"> <i>Press space to continue.</i>  </p>
+</div>
+
+<div class="slide" id="practiceKeyLeft">
+  <p class="block-text2">Throughout this experiment, please use your left hand to
+  press "Q" (False) and your right hand to press "P" (True). 
+  <br></br>
+   <p class="block-text3"> <b>Please use your left hand to press "Q" (false)
+  to continue.</b>  </p>
+</div>
+
+<div class="slide" id="practiceKeyRight">
+  <p class="block-text2">Thank you.
+  <br></br>
+   <p class="block-text3"> <b>Now please use your right hand to press
+  "P" (true).  This will begin the practice trials.  </b>  </p>
+</div>
+
+
+
+<div class="slide" id="stage">
+  <p align="center">
+  <table border="0">
+    <tr height=360px>
+      <td>
+	<table border="0">
+	  <tr>
+	    <td width=200px>
+	      <p id="context1"></p>
+	    </td>
+	    <td width=200px>
+	      <p id="context2"></p>
+	    </td>
+	    <td width=200px>
+	      <p id="context3"></p>
+	    </td>
+	  </tr>
+	</table>
+	<center>
+	<table border="0">
+	  <tr>
+	    <td width=300px>
+	      <p id="questionL"></p>
+	    </td>
+	    <td width=300px>
+	      <p id="questionR"></p>
+	    </td>
+	  </tr>
+	</table>
+	</center>
+      </td>
+    </tr>
+    <tr>
+      <td>
+	<p id="questionText"></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <p id="instructionsText"></p>
+      </td>
+    </tr>
+  </table>
+  </p>
+</div>
+
+<div class="slide" id="practiceEnd">
+  <p class="block-text2">This is the end of the practice questions.
+  Remember, during the game we will be recording how quickly you
+  respond, so <b>please respond as quickly and accurately
+  as possible.</b>
+  <br></br><i>Press space to begin the matching game!</i></p>
+</div>
+
+<div class="slide" id="askInfo">
+    
+    <div id="form">
+    <p id="infoQ">Please answer a few questions about yourself. </p>
+    <form name="gender">
+    </br>
+    <span id="infoQ">Gender:</span>&nbsp;&nbsp;
+    <input type="radio" name="genderButton" value="M" /><span id="opt">Male</span>&nbsp;&nbsp;
+    <input type="radio" name="genderButton" value="F" /><span id="opt">Female</span>
+    </form>
+    
+    <form name="age">
+    <span id="infoQ">Age range:</span>&nbsp;&nbsp;
+    <select name=ageRange>
+    <option value=17><span id="opt">Under 18</span></option>
+    <option value=25><span id="opt">18-25</span></option>
+    <option value=35><span id="opt">26-35</span></option>
+    <option value=45><span id="opt">36-45</span></option>
+    <option value=55><span id="opt">46-55</span></option>
+    <option value=65><span id="opt">56-65</span></option>
+    <option value=66><span id="opt">Above 66</span></option>
+    </select>
+    </form>
+    
+    <form name="language">
+    <span id="infoQ">What is your native language?</span>&nbsp;&nbsp;
+    <input type="text" name="nativeLanguage" /><br />
+    </form>
+      
+    <form name="comments">
+    </br>
+    </br>
+    <span id="infoQ"> Please leave any comments or suggestions regarding this HIT:</span></br>
+    <TEXTAREA name="input" ROWS=10 COLS=50></TEXTAREA>
+    </br>
+    </form>
+    <button type="button" onclick="this.blur(); if (ValidateForm(document.gender) && ValidateSelect(document.age) && ValidateText(document.language.nativeLanguage)) {experiment.end()}">Submit</button>
+    </div>
+</div>
+
+<div class="slide" id="finished">
+  You're finished - thanks for participating! Submitting to Mechanical Turk...
+</div>
+<script src="141101-simpimpSCadult-draft2.js"></script>
+
+</body>
+</html>
